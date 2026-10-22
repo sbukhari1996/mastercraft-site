@@ -2,7 +2,8 @@ services:
   web:
     build: .
     ports:
-      - "5173:5173"
+      # Host port 5180 (5173 is used by other local software)
+      - "5180:5173"
     volumes:
       # Mount the project so edits and the /admin page write straight to your files.
       - .:/app
