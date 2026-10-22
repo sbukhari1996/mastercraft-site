@@ -8,8 +8,14 @@ export default {
         charcoal: { DEFAULT: '#121212', light: '#1c1c1c' },
       },
       fontFamily: {
-        display: ['"Arial Black"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
-        body: ['"Helvetica Neue"', 'Arial', 'sans-serif'],
+        display: ['"Barlow Condensed"', 'Arial', 'sans-serif'],
+        body: ['Inter', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+      },
+      keyframes: {
+        marquee: { to: { transform: 'translateX(-50%)' } },
+      },
+      animation: {
+        marquee: 'marquee 60s linear infinite',
       },
     },
   },

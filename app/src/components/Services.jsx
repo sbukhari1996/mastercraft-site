@@ -2,26 +2,21 @@ import { useState } from 'react';
 
 const services = [
   {
-    id: 'collision',
     title: 'Collision & Frame Repair',
     summary: 'Factory-spec structural realignment with computerized measuring.',
     details: ['Computerized frame measuring', 'Factory-spec structural realignment', 'Full-frame collision repair'],
-    wide: true,
   },
   {
-    id: 'insurance',
     title: 'Insurance Claim Concierge',
     summary: 'We deal with your adjuster, supplements and paperwork.',
     details: ['Direct handling of insurance adjusters', 'Supplements handled for you', 'Paperwork taken off your plate'],
   },
   {
-    id: 'mechanical',
     title: 'Mechanical & Diagnostics',
     summary: 'Engine, transmission, brakes and factory maintenance.',
     details: ['Advanced engine diagnostics', 'Brake service', 'Factory maintenance'],
   },
   {
-    id: 'paint',
     title: 'Custom Body & Paint',
     summary: 'Color-matched precision paint with a flawless clear coat.',
     details: ['Color-matched precision painting', 'Precision body work', 'Flawless clear coat finish'],
@@ -29,54 +24,46 @@ const services = [
 ];
 
 export default function Services({ onEstimate }) {
-  const [openId, setOpenId] = useState(null);
+  const [open, setOpen] = useState(0);
 
   return (
     <section id="services" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-20 md:py-28">
-      <p className="eyebrow">What We Do</p>
-      <h2 className="mt-3 max-w-2xl text-4xl md:text-5xl">Auto Repair &amp; Collision, Done Right</h2>
+      <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div>
+          <p className="eyebrow">What We Do</p>
+          <h2 className="mt-4 text-5xl md:text-6xl">Repair. Restore. <br />Get Back On The Road.</h2>
+        </div>
+        <button onClick={onEstimate} className="btn-primary self-start md:self-auto">Start My Estimate</button>
+      </div>
 
-      <div className="mt-12 grid gap-5 md:grid-cols-3">
-        {services.map((s) => {
-          const open = openId === s.id;
+      <ol className="mt-14 border-t border-white/15">
+        {services.map((s, i) => {
+          const isOpen = open === i;
           return (
-            <article
-              key={s.id}
-              className={`card group p-7 transition duration-300 hover:-translate-y-1 hover:border-brand/60 hover:shadow-2xl hover:shadow-brand/10 ${
-                s.wide ? 'md:col-span-2' : ''
-              }`}
-            >
-              <h3 className="text-2xl">{s.title}</h3>
-              <p className="mt-3 text-white/70">{s.summary}</p>
-
+            <li key={s.title} className="border-b border-white/15">
               <button
                 type="button"
-                aria-expanded={open}
-                onClick={() => setOpenId(open ? null : s.id)}
-                className="mt-5 text-sm font-bold uppercase tracking-wide text-brand hover:underline"
+                aria-expanded={isOpen}
+                onClick={() => setOpen(isOpen ? -1 : i)}
+                className="group grid w-full grid-cols-[3rem_1fr_auto] items-center gap-4 py-6 text-left md:grid-cols-[5rem_1fr_1fr_auto] md:gap-8"
               >
-                {open ? 'Hide details -' : 'See what is included +'}
+                <span className="font-display text-2xl font-bold text-brand">0{i + 1}</span>
+                <span className="font-display text-3xl font-extrabold uppercase transition group-hover:text-brand md:text-4xl">{s.title}</span>
+                <span className="hidden text-white/65 md:block">{s.summary}</span>
+                <span aria-hidden="true" className={`grid h-10 w-10 place-items-center border-2 border-white/30 text-xl transition ${isOpen ? 'rotate-45 border-brand bg-brand' : ''}`}>+</span>
               </button>
-
-              {open && (
-                <ul className="mt-4 space-y-2 border-t border-white/10 pt-4 text-sm text-white/80">
-                  {s.details.map((d) => (
-                    <li key={d}>&#10003; {d}</li>
-                  ))}
-                </ul>
+              {isOpen && (
+                <div className="grid gap-6 pb-8 pl-[3.5rem] md:grid-cols-[5rem_1fr] md:pl-[5rem]">
+                  <p className="text-white/75 md:hidden">{s.summary}</p>
+                  <ul className="grid gap-2 text-white/85 sm:grid-cols-3 sm:gap-6">
+                    {s.details.map((d) => <li key={d} className="border-l-2 border-brand pl-3">{d}</li>)}
+                  </ul>
+                </div>
               )}
-            </article>
+            </li>
           );
         })}
-
-        <div className="card flex flex-col justify-between gap-6 bg-brand p-7 md:col-span-1">
-          <div>
-            <h3 className="text-2xl">Not sure what you need?</h3>
-            <p className="mt-3 text-white/90">Send a few photos and your car details. We reply with next steps.</p>
-          </div>
-          <button onClick={onEstimate} className="btn bg-white text-charcoal hover:bg-white/90">Start My Estimate</button>
-        </div>
-      </div>
+      </ol>
     </section>
   );
 }
