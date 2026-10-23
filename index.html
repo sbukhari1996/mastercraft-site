@@ -3,25 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MasterCraft Auto Repair & Collision | Long Island City, NY</title>
-<meta name="description" content="MasterCraft Auto Repair & Collision in Long Island City, NY — expert diagnostics, engine & trans work, brakes & suspension, and full-frame collision repair with color-match painting. All insurance welcome.">
+<title>MasterCraft Auto Repair &amp; Collision | Long Island City, NY</title>
+<meta name="description" content="MasterCraft Auto Repair & Collision in Long Island City, NY: full-frame collision repair, insurance claim handling, engine and brake work, and color-match paint. All insurance welcome. Open daily 6AM to midnight.">
 <link rel="canonical" href="https://www.mastercraftautony.com/">
-
-<!-- Favicon: swap with a final cropped/optimized favicon.ico when available -->
+<meta name="theme-color" content="#121212">
+<meta property="og:type" content="business.business">
+<meta property="og:title" content="MasterCraft Auto Repair & Collision | Long Island City, NY">
+<meta property="og:description" content="Collision repair, insurance claims and auto repair in Long Island City. Free estimates with photos.">
+<meta property="og:url" content="https://www.mastercraftautony.com/">
+<meta property="og:image" content="https://www.mastercraftautony.com/images/hero-storefront.webp">
 <link rel="icon" href="images/logo-badge.png" type="image/png">
 
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="styles.css">
 <script src="config.js" defer></script>
 <script src="app.js" defer></script>
 
-<!-- Local SEO Schema Engine: AutoRepair (extends LocalBusiness). Rebuilt at runtime from config.js — edit values there, not here. -->
+<!-- Local SEO schema. app.js rebuilds it from config.js at load; this copy is the no-JS fallback. -->
 <script type="application/ld+json" id="business-schema">
 {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
   "@id": "https://www.mastercraftautony.com/#business",
   "name": "MasterCraft Auto Repair & Collision",
-  "image": "https://www.mastercraftautony.com/images/logo-badge.png",
+  "image": "https://www.mastercraftautony.com/images/logo-badge.webp",
   "url": "https://www.mastercraftautony.com",
   "telephone": "+1-718-578-4563",
   "email": "shop@mastercraftautony.com",
@@ -36,267 +44,301 @@
   },
   "areaServed": ["Long Island City", "Astoria", "Sunnyside", "Queens", "Western Long Island"],
   "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "opens": "06:00",
-      "closes": "24:00"
-    }
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "06:00", "closes": "24:00" }
   ]
 }
 </script>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- The race: a fixed car that drives across the page as you scroll. Sits behind all content. -->
+<div class="race" aria-hidden="true">
+  <div class="race-car">
+    <svg viewBox="0 0 600 220" role="img">
+      <defs>
+        <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ff5b60"/>
+          <stop offset=".45" stop-color="#d4202a"/>
+          <stop offset="1" stop-color="#6d0a10"/>
+        </linearGradient>
+        <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#3a3f4a"/>
+          <stop offset="1" stop-color="#0b0d12"/>
+        </linearGradient>
+        <radialGradient id="rim" cx=".5" cy=".5" r=".5">
+          <stop offset=".55" stop-color="#2a2d33"/>
+          <stop offset=".6" stop-color="#c9ccd2"/>
+          <stop offset="1" stop-color="#7d818a"/>
+        </radialGradient>
+      </defs>
+      <ellipse cx="300" cy="206" rx="270" ry="10" fill="#000" opacity=".5"/>
+      <path d="M22 150 L22 118 Q24 100 62 94 L150 82 Q192 52 262 48 L402 46 Q452 48 492 80 L540 96 Q578 104 580 130 L582 150 Q582 162 568 162 L538 162 A44 44 0 0 0 450 162 L202 162 A44 44 0 0 0 114 162 L60 162 Q22 162 22 150 Z" fill="url(#body)"/>
+      <path d="M176 84 Q206 62 262 60 L392 58 Q432 60 458 84 Z" fill="url(#glass)"/>
+      <path d="M204 80 Q230 68 268 66 L300 66 L262 80 Z" fill="#fff" opacity=".18"/>
+      <path d="M130 100 L300 96" stroke="#fff" stroke-width="2" opacity=".35"/>
+      <path d="M548 108 L580 116 L576 128 L546 122 Z" fill="#fff6e0"/>
+      <path d="M22 112 L40 110 L42 126 L24 130 Z" fill="#ff2a2a"/>
+      <circle cx="152" cy="160" r="44" fill="#05060a"/>
+      <circle cx="152" cy="160" r="30" fill="url(#rim)"/>
+      <circle cx="152" cy="160" r="8" fill="#2a2d33"/>
+      <circle cx="492" cy="160" r="44" fill="#05060a"/>
+      <circle cx="492" cy="160" r="30" fill="url(#rim)"/>
+      <circle cx="492" cy="160" r="8" fill="#2a2d33"/>
+    </svg>
+  </div>
+  <div class="race-road"></div>
+</div>
+
 <header class="site-header" id="header">
   <div class="container header-inner">
     <a href="#top" class="logo-link">
-      <!-- Swap logo-badge.png for a final optimized/transparent-cropped logo if available -->
-      <img src="images/logo-badge.png" alt="MasterCraft Auto Repair & Collision logo" class="logo-img" data-cfg="src:images.logo">
+      <img src="images/logo-badge.webp" alt="" width="44" height="44" class="logo-img" data-cfg="src:images.logo">
       <span class="logo-text"><span data-cfg="text:business.shortName">MasterCraft</span><small data-cfg="text:business.tagline">Auto Repair &amp; Collision</small></span>
     </a>
 
-    <nav class="main-nav" id="mainNav">
-      <a href="#services">Auto Repair</a>
-      <a href="#collision">Collision</a>
+    <nav class="main-nav" id="mainNav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#reviews">Reviews</a>
       <a href="#about">About</a>
-      <a href="#estimate">Get Estimate</a>
       <a href="#contact">Contact</a>
     </nav>
 
     <div class="header-cta">
-      <a href="tel:+17185784563" class="btn btn-call" data-cfg="href:business.phoneHref"><span data-cfg="text:business.phoneDisplay">(718) 578-4563</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mainNav">
+      <a href="tel:+17185784563" class="btn btn-sm btn-red" data-cfg="href:business.phoneHref"><span data-cfg="text:business.phoneDisplay">(718) 578-4563</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
 </header>
 
-<main>
+<main id="main">
+
+  <!-- HERO -->
   <section class="hero" id="top">
-    <!-- Hero background: swap images/hero-storefront.png for final storefront photography when available -->
-    <img src="images/hero-storefront.png" alt="MasterCraft Auto Repair & Collision storefront" class="hero-bg" data-cfg="src:images.hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <p class="eyebrow">Long Island City, NY</p>
-      <h1>Your Trusted<br>Automotive Partners</h1>
-      <p class="hero-sub">Expert auto repair &amp; full-frame collision work under one roof. All insurance welcome.</p>
-      <div class="hero-actions">
-        <a href="tel:+17185784563" class="btn btn-primary" data-cfg="href:business.phoneHref">Call Now: <span data-cfg="text:business.phoneDisplay">(718) 578-4563</span></a>
-        <a href="#estimate" class="btn btn-outline">Get A Free Estimate</a>
-      </div>
-      <div class="hours-badge">
-        <strong data-cfg="text:hours.badge">Open Daily 6AM&ndash;Midnight</strong>
-      </div>
-    </div>
-  </section>
-
-  <section class="services-split" id="services">
-    <div class="container split-grid">
-      <div class="split-col split-col-left">
-        <h2>Experts In<span>Auto Repair</span></h2>
-        <ul class="service-list">
-          <li>Comprehensive Diagnostics</li>
-          <li>Engine &amp; Trans Work</li>
-          <li>Brakes &amp; Suspension</li>
-          <li>Maintenance</li>
+    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Long Island City, NY</p>
+        <h1>Where NYC <span class="accent">drives with confidence</span></h1>
+        <p class="lede">Full-frame collision restoration, direct insurance claim handling, and expert auto repair under one roof. Five-star service, all insurance welcome.</p>
+        <div class="hero-actions">
+          <a href="#estimate" class="btn btn-red btn-lg">Get Instant Estimate <span aria-hidden="true">&rarr;</span></a>
+          <a href="tel:+17185784563" class="btn btn-glass btn-lg" data-cfg="href:business.phoneHref">Call <span data-cfg="text:business.phoneDisplay">(718) 578-4563</span></a>
+        </div>
+        <ul class="badges">
+          <li class="glass badge"><strong id="avgRating">5.0</strong><span>Avg. review</span></li>
+          <li class="glass badge"><strong>All</strong><span>Insurance welcome</span></li>
+          <li class="glass badge"><strong>Daily</strong><span>6AM – Midnight</span></li>
         </ul>
       </div>
+      <figure class="hero-figure glass">
+        <img src="images/hero-storefront.webp" width="1600" height="1600" fetchpriority="high" alt="MasterCraft Auto Repair & Collision storefront" data-cfg="src:images.hero">
+      </figure>
+    </div>
+  </section>
 
-      <div class="split-emblem">
-        <!-- Central emblem: swap logo-badge.png for final vector/transparent logo file if available -->
-        <img src="images/logo-badge.png" alt="MasterCraft Auto Repair & Collision emblem" class="emblem-img" data-cfg="src:images.logo">
-      </div>
+  <!-- SERVICES -->
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <p class="eyebrow reveal">What we do</p>
+      <h2 id="services-title" class="reveal">Repair, restore, <span class="accent">get back on the road</span></h2>
 
-      <div class="split-col split-col-right" id="collision">
-        <h2>Specializing In<span>Collision</span></h2>
-        <ul class="service-list">
-          <li>Full-Frame Repair</li>
-          <li>Precision Body Work</li>
-          <li>Expert Color Match Painting</li>
-          <li>All Insurance Welcome</li>
-        </ul>
+      <div class="service-grid">
+        <article class="glass card reveal">
+          <h3>Auto Repair</h3>
+          <ul class="checks">
+            <li>Comprehensive diagnostics</li>
+            <li>Engine &amp; transmission work</li>
+            <li>Brakes &amp; suspension</li>
+            <li>Factory maintenance</li>
+          </ul>
+        </article>
+        <article class="glass card card-featured reveal">
+          <h3>Collision</h3>
+          <ul class="checks">
+            <li>Full-frame repair</li>
+            <li>Precision body work</li>
+            <li>Expert color-match painting</li>
+            <li>Insurance claim concierge</li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="trust-strip">
-    <div class="container trust-grid">
-      <div class="trust-item"><span class="trust-icon">&#128737;</span>All Insurance Welcome</div>
-      <div class="trust-item"><span class="trust-icon">&#128295;</span>Certified Technicians</div>
-      <div class="trust-item"><span class="trust-icon">&#127912;</span>Color-Match Painting</div>
-      <div class="trust-item"><span class="trust-icon">&#128205;</span>Long Island City Local</div>
+  <!-- BEFORE / AFTER -->
+  <section class="section" id="results" aria-labelledby="results-title">
+    <div class="container">
+      <p class="eyebrow reveal">Real results</p>
+      <h2 id="results-title" class="reveal">Drag to see the <span class="accent">transformation</span></h2>
+      <div id="compare" class="compare-grid"></div>
     </div>
   </section>
 
-  <section class="about" id="about">
+  <!-- REVIEWS -->
+  <section class="section" id="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="reviews-head">
+        <div>
+          <p class="eyebrow reveal">Verified local reviews</p>
+          <h2 id="reviews-title" class="reveal">What drivers <span class="accent">say</span></h2>
+        </div>
+        <div class="reviews-nav">
+          <button class="icon-btn" id="revPrev" aria-label="Previous review">&larr;</button>
+          <button class="icon-btn" id="revNext" aria-label="Next review">&rarr;</button>
+        </div>
+      </div>
+      <div class="reviews-track" id="reviewsTrack" tabindex="0" aria-label="Customer reviews"></div>
+      <p class="reviews-foot"><a href="#" class="btn btn-glass" data-cfg="href:googleReviewUrl">Leave a Google review</a></p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about" aria-labelledby="about-title">
     <div class="container about-grid">
-      <div class="about-copy">
-        <p class="eyebrow">Our Shop</p>
-        <h2>Visit MasterCraft in Long Island City</h2>
-        <p>From routine maintenance to full-frame collision repair, our certified technicians treat every vehicle like it's their own. Stop by, call ahead, or request a free estimate online &mdash; photos welcome.</p>
+      <figure class="glass about-media reveal">
+        <img src="images/shop-sign.webp" width="1400" height="1093" loading="lazy" alt="MasterCraft hanging shop sign" data-cfg="src:images.aboutShop">
+      </figure>
+      <div class="about-copy reveal">
+        <p class="eyebrow">Our shop</p>
+        <h2 id="about-title">Visit MasterCraft in <span class="accent">Long Island City</span></h2>
+        <p>From routine maintenance to full-frame collision repair, our certified technicians treat every vehicle like it's their own. Stop by, call ahead, or request a free estimate online. Photos welcome.</p>
         <address>
           <span data-cfg="text:address.street">38-21 23rd Street</span><br>
           <span data-cfg="text:address.cityStateZip">Long Island City, NY 11101</span>
         </address>
-        <a href="tel:+17185784563" class="btn btn-primary" data-cfg="href:business.phoneHref">Call <span data-cfg="text:business.phoneDisplay">(718) 578-4563</span></a>
-      </div>
-      <div class="about-media">
-        <!-- Swap shop-sign-hires.png for final on-site shop photography when available -->
-        <img src="images/shop-sign-hires.png" alt="MasterCraft Auto Repair & Collision hanging shop sign" data-cfg="src:images.aboutShop">
+        <p class="muted" data-cfg="text:hours.range">6AM – 12AM (Midnight)</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-red" data-cfg="href:map.directionsUrl" target="_blank" rel="noopener noreferrer">Get directions</a>
+          <a href="tel:+17185784563" class="btn btn-glass" data-cfg="href:business.phoneHref">Call now</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="estimate" id="estimate">
-    <div class="container estimate-inner">
-      <p class="eyebrow eyebrow-center">Free Estimate</p>
-      <h2 class="center-heading">Tell Us What Happened</h2>
-      <p class="center-sub">Send your info and photos of any damage &mdash; we'll follow up fast.</p>
+  <!-- ESTIMATE -->
+  <section class="section" id="estimate" aria-labelledby="estimate-title">
+    <div class="container narrow">
+      <div class="glass form-card reveal">
+        <p class="eyebrow eyebrow-center">Free estimate</p>
+        <h2 id="estimate-title" class="center">Tell us what <span class="accent">happened</span></h2>
+        <p class="center muted">Send your info and photos of any damage. We follow up fast.</p>
 
-      <form
-        action="https://formsubmit.co/shop@mastercraftautony.com"
-        method="POST"
-        enctype="multipart/form-data"
-        id="estimateForm"
-        class="estimate-form"
-        novalidate
-      >
-        <!-- FormSubmit.co configuration: zero-cost static form handler -->
-        <input type="hidden" name="_subject" value="New Estimate Request — MasterCraft Website">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
+        <form action="https://formsubmit.co/shop@mastercraftautony.com" method="POST" enctype="multipart/form-data" id="estimateForm" class="estimate-form" novalidate>
+          <input type="hidden" name="_subject" value="New Estimate Request — MasterCraft Website">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off">
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Full Name *</label>
-            <input type="text" id="name" name="Customer Name" required>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full name *</label>
+              <input type="text" id="name" name="Customer Name" autocomplete="name" required>
+              <p class="field-error" aria-live="polite"></p>
+            </div>
+            <div class="form-group">
+              <label for="phone">Cell phone *</label>
+              <input type="tel" id="phone" name="Cell Phone" autocomplete="tel" required>
+              <p class="field-error" aria-live="polite"></p>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="phone">Cell Phone *</label>
-            <input type="tel" id="phone" name="Cell Phone" required>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="Email" autocomplete="email" required>
+              <p class="field-error" aria-live="polite"></p>
+            </div>
+            <div class="form-group">
+              <label for="vehicle">Car make / model *</label>
+              <input type="text" id="vehicle" name="Car Make/Model" placeholder="e.g. 2019 Honda Accord" required>
+              <p class="field-error" aria-live="polite"></p>
+            </div>
           </div>
-        </div>
 
-        <div class="form-row">
           <div class="form-group">
-            <label for="email">Email *</label>
-            <input type="email" id="email" name="Email" required>
+            <label for="service">Service needed *</label>
+            <select id="service" name="Service Needed" required>
+              <option value="" disabled selected>Select a service…</option>
+              <option>Comprehensive Diagnostics</option>
+              <option>Engine &amp; Trans Work</option>
+              <option>Brakes &amp; Suspension</option>
+              <option>Maintenance</option>
+              <option>Full-Frame Repair</option>
+              <option>Precision Body Work</option>
+              <option>Expert Color Match Painting</option>
+              <option>Insurance Claim / Collision</option>
+              <option>Other</option>
+            </select>
+            <p class="field-error" aria-live="polite"></p>
           </div>
+
           <div class="form-group">
-            <label for="vehicle">Car Make / Model *</label>
-            <input type="text" id="vehicle" name="Car Make/Model" placeholder="e.g. 2019 Honda Accord" required>
+            <label for="details">Additional details</label>
+            <textarea id="details" name="Details" rows="4" placeholder="Tell us what happened, symptoms, etc."></textarea>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label for="service">Service Needed *</label>
-          <select id="service" name="Service Needed" required>
-            <option value="" disabled selected>Select a service&hellip;</option>
-            <option>Comprehensive Diagnostics</option>
-            <option>Engine &amp; Trans Work</option>
-            <option>Brakes &amp; Suspension</option>
-            <option>Maintenance</option>
-            <option>Full-Frame Repair</option>
-            <option>Precision Body Work</option>
-            <option>Expert Color Match Painting</option>
-            <option>Insurance Claim / Collision</option>
-            <option>Other</option>
-          </select>
-        </div>
+          <div class="form-group">
+            <label for="photos">Upload damage photos</label>
+            <input type="file" id="photos" name="Attachment" accept="image/*" multiple>
+            <small class="muted" id="photosHint">JPG, PNG or WebP. Up to 10 photos, 10 MB each.</small>
+            <p class="field-error" aria-live="polite"></p>
+          </div>
 
-        <div class="form-group">
-          <label for="details">Additional Details</label>
-          <textarea id="details" name="Details" rows="4" placeholder="Tell us what happened, symptoms, etc."></textarea>
-        </div>
+          <div class="form-group">
+            <label class="check">
+              <input type="checkbox" id="smsConsent" name="SMS Consent" value="Yes — customer opted in to SMS">
+              <span>I agree to receive SMS text messages from MasterCraft Auto Repair &amp; Collision. (Optional)</span>
+            </label>
+            <p class="sms-disclosure">By providing a telephone number and submitting this form you are consenting to be contacted by SMS text message. Message &amp; data rates may apply. Message frequency may vary. See our <a href="/privacy.html">Privacy Policy</a>. Reply HELP for more information. You can reply STOP to opt-out of further messaging.</p>
+          </div>
 
-        <div class="form-group">
-          <label for="photos">Upload Damage Photos</label>
-          <input type="file" id="photos" name="Attachment" accept="image/*" multiple>
-          <small>JPG or PNG, multiple photos accepted.</small>
-        </div>
-
-        <div class="form-group sms-consent">
-          <label class="sms-consent-label">
-            <input type="checkbox" id="smsConsent" name="SMS Consent" value="Yes — customer opted in to SMS">
-            <span>I agree to receive SMS text messages from MasterCraft Auto Repair &amp; Collision. (Optional)</span>
-          </label>
-          <p class="sms-disclosure">By providing a telephone number and submitting this form you are consenting to be contacted by SMS text message. Message &amp; data rates may apply. Message frequency may vary. See our <a href="/privacy.html">Privacy Policy</a>. Reply HELP for more information. You can reply STOP to opt-out of further messaging.</p>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Submit Request</button>
-        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
-      </form>
+          <button type="submit" class="btn btn-red btn-block" id="submitBtn">Submit request</button>
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </div>
   </section>
 </main>
 
-<section id="social-hub" aria-label="Social Media Connections" class="social-hub-section">
+<!-- SOCIAL + FOOTER -->
+<section class="section social" aria-label="Social media">
   <div class="container">
-    <p class="eyebrow eyebrow-center">Stay Connected</p>
-    <h2 class="center-heading">Follow The Action At MasterCraft</h2>
-    <!-- Placeholder social URLs — replace with live handles before launch -->
     <div class="social-grid">
-      <a class="social-card" href="https://www.facebook.com/mastercraftautony" target="_blank" rel="noopener noreferrer" data-cfg="href:social.facebook">
-        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 9H15V6h-1.5C11.6 6 10 7.6 10 9.5V11H8v3h2v7h3v-7h2.1l.4-3H13V9.9c0-.6.4-.9 1-.9z"/></svg>
-        <h3>MasterCraft Community</h3>
-        <p>Before/after collision transformations, LIC community updates &amp; customer reviews.</p>
-        <span class="social-cta">Follow on Facebook &rarr;</span>
-      </a>
-      <a class="social-card" href="https://www.youtube.com/@mastercraftautony" target="_blank" rel="noopener noreferrer" data-cfg="href:social.youtube">
-        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.4-1C16.4 3.5 12 3.5 12 3.5h0s-4.4 0-7.7.4c-.5.1-1.5.1-2.4 1C1.2 5.6 1 7.2 1 7.2S.8 9 .8 10.9v1.9C.8 14.7 1 16.5 1 16.5s.2 1.6.9 2.3c.9.9 2.1.9 2.6 1 1.9.2 8 .2 8 .2s4.4 0 7.7-.4c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.3.9-2.3s.2-1.8.2-3.7v-1.9c0-1.9-.2-3.7-.2-3.7zM9.7 14.9V8.7l6 3.1-6 3.1z"/></svg>
-        <h3>MasterCraft Garage</h3>
-        <p>In-depth diagnostics breakdowns, frame straightening time-lapses &amp; paint match tutorials.</p>
-        <span class="social-cta">Watch on YouTube &rarr;</span>
-      </a>
-      <a class="social-card" href="https://www.tiktok.com/@mastercraftautony" target="_blank" rel="noopener noreferrer" data-cfg="href:social.tiktok">
-        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.8c-.9-.9-1.4-2.2-1.4-3.5h-3.1v13.3c0 1.4-1.1 2.5-2.5 2.5s-2.5-1.1-2.5-2.5 1.1-2.5 2.5-2.5c.3 0 .5 0 .8.1v-3.2c-.3 0-.5-.1-.8-.1-3.1 0-5.6 2.5-5.6 5.6s2.5 5.6 5.6 5.6 5.6-2.5 5.6-5.6V9.1c1.2.9 2.7 1.4 4.3 1.4V7.4c-.9 0-1.7-.3-2.4-.8-.3-.2-.6-.5-.9-.8z"/></svg>
-        <h3>MasterCraft Clips</h3>
-        <p>Fast, satisfying dent pulls, 60-second car tips &amp; daily shop life in Queens.</p>
-        <span class="social-cta">Watch on TikTok &rarr;</span>
-      </a>
+      <a class="glass social-card" href="https://www.facebook.com/mastercraftautony" target="_blank" rel="noopener noreferrer" data-cfg="href:social.facebook"><h3>Facebook</h3><p>Before/after collision work &amp; community updates</p></a>
+      <a class="glass social-card" href="https://www.youtube.com/@mastercraftautony" target="_blank" rel="noopener noreferrer" data-cfg="href:social.youtube"><h3>YouTube</h3><p>Diagnostics breakdowns &amp; frame work time-lapses</p></a>
+      <a class="glass social-card" href="https://www.tiktok.com/@mastercraftautony" target="_blank" rel="noopener noreferrer" data-cfg="href:social.tiktok"><h3>TikTok</h3><p>Quick dent pulls &amp; daily shop life in Queens</p></a>
     </div>
   </div>
 </section>
 
 <footer class="site-footer" id="contact">
   <div class="container footer-grid">
-    <div class="footer-col">
-      <img src="images/logo-badge.png" alt="MasterCraft logo" class="footer-logo" data-cfg="src:images.logo">
-      <p data-cfg="text:business.name">MasterCraft Auto Repair &amp; Collision</p>
-      <p><span data-cfg="text:address.street">38-21 23rd Street</span><br><span data-cfg="text:address.cityStateZip">Long Island City, NY 11101</span></p>
+    <div>
+      <img src="images/logo-badge.webp" alt="MasterCraft logo" width="56" height="56" loading="lazy" class="footer-logo" data-cfg="src:images.logo">
+      <p class="footer-name" data-cfg="text:business.name">MasterCraft Auto Repair &amp; Collision</p>
+      <p class="muted"><span data-cfg="text:address.street">38-21 23rd Street</span>, <span data-cfg="text:address.cityStateZip">Long Island City, NY 11101</span></p>
     </div>
-    <div class="footer-col">
+    <div>
       <h3>Contact</h3>
       <p><a href="tel:+17185784563" data-cfg="href:business.phoneHref"><span data-cfg="text:business.phoneDisplay">(718) 578-4563</span></a></p>
       <p><a href="mailto:shop@mastercraftautony.com" data-cfg="href:business.mailtoHref"><span data-cfg="text:business.email">shop@mastercraftautony.com</span></a></p>
-      <p><a href="https://www.mastercraftautony.com" target="_blank" rel="noopener" data-cfg="href:business.website"><span data-cfg="text:business.websiteDisplay">www.mastercraftautony.com</span></a></p>
     </div>
-    <div class="footer-col">
+    <div>
       <h3>Hours</h3>
-      <p data-cfg="text:hours.days">Monday&ndash;Sunday</p>
-      <p data-cfg="text:hours.range">6AM &ndash; 12AM (Midnight)</p>
-    </div>
-    <div class="footer-col footer-map">
-      <h3>Find Us</h3>
-      <!-- Tapping/clicking opens native Google Maps app (mobile) or Maps web (desktop) with turn-by-turn directions -->
-      <a
-        id="map-fallback"
-        href="https://www.google.com/maps/dir/?api=1&destination=38-21+23rd+Street%2C+Long+Island+City%2C+NY+11101"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Get directions to 38-21 23rd Street, Long Island City, NY 11101"
-        data-cfg="href:map.directionsUrl;aria-label:address.full"
-      >
-        <span data-cfg="text:address.full">38-21 23rd Street, Long Island City, NY 11101</span>
-        <span class="map-cta">Get Directions &rarr;</span>
-      </a>
+      <p data-cfg="text:hours.days">Monday–Sunday</p>
+      <p data-cfg="text:hours.range">6AM – 12AM (Midnight)</p>
+      <p><a href="#" target="_blank" rel="noopener noreferrer" data-cfg="href:map.directionsUrl" class="underline">Get directions &rarr;</a></p>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; <span id="year"></span> MasterCraft Auto Repair &amp; Collision. All rights reserved. &nbsp;|&nbsp; <a href="/privacy.html" style="color:#bbb;text-decoration:underline;">Privacy Policy</a></p>
-    <p style="font-size:0.7rem;color:#888;margin-top:0.5rem;line-height:1.5;">No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All other categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
+    <div class="container">
+      <p>&copy; <span id="year"></span> MasterCraft Auto Repair &amp; Collision. All rights reserved. &nbsp;|&nbsp; <a href="/privacy.html" class="underline">Privacy Policy</a></p>
+      <p class="fine">No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All other categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
+    </div>
   </div>
 </footer>
 </body>

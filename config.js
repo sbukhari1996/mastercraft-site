@@ -1,8 +1,7 @@
 /*
  * MasterCraft site config — the ONE file to edit for day-to-day changes.
  * Edit a value below, save, commit, push to GitHub Pages. That's it.
- * Every place this data appears on the site (header, hero, footer, schema, etc.)
- * updates automatically — no need to touch index.html, styles.css, or app.js.
+ * Every place this data appears on the site (header, hero, footer, reviews, schema) updates automatically.
  */
 window.SITE_CONFIG = {
   business: {
@@ -39,9 +38,9 @@ window.SITE_CONFIG = {
   },
 
   images: {
-    logo: "images/logo-badge.png",
-    hero: "images/hero-storefront.png",
-    aboutShop: "images/shop-sign-hires.png",
+    logo: "images/logo-badge.webp",
+    hero: "images/hero-storefront.webp",
+    aboutShop: "images/shop-sign.webp",
     mapBackground: "images/image-1783132135535.webp"
   },
 
@@ -54,5 +53,21 @@ window.SITE_CONFIG = {
   map: {
     // Google Maps "get directions" deep link — opens the native app on mobile
     directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=38-21+23rd+Street%2C+Long+Island+City%2C+NY+11101"
-  }
+  },
+
+  // Link to your Google Business Profile review page ("Leave a review" button).
+  googleReviewUrl: "https://www.google.com/maps/search/?api=1&query=MasterCraft+Auto+Repair+%26+Collision+Long+Island+City",
+
+  // Shown in the reviews carousel. Text is copied as posted; paste full text when you have it.
+  reviews: [
+    { name: "Syed Asghar", rating: 5, dateText: "2 months ago", text: "Excellent experience, Bukhari is a professional and definitely knows what he is doing. He handled all the back/forth with my insurance company and got them to approve the claim properly. Once he began work, he kept me updated on a daily ..." },
+    { name: "Terrell Brathwaite", rating: 5, dateText: "a month ago", text: "They are very elite. They made my damaged car look absolutely brand new. Would recommend to anyone in NYC who drives" },
+    { name: "mian azhar", rating: 5, dateText: "a month ago", text: "I had an amazing experience with Mastercraft! Mr Syed is very experienced and have a lot of knowledge about fixing my car from auto body to mechanical repairs.My car suffered significant front-end damage,back fender,side door , but their ..." },
+    { name: "Sam Real estate", rating: 5, dateText: "2 months ago", text: "Best Auto collision shop in the Long Island City, Syed Help Me insurance claim and repaired my vehicle like it's never accident . Very happy with work and staff are very helpful. I recommend this shop bring your vehicle here and get a quality work with affordable price." },
+    { name: "Touchstone Services", rating: 5, dateText: "2 months ago", text: "Syed did best quality body work on my car .I received best service from this shop shop owner is very generous and helpful person. I recommend this auto repair & best collision repair shop to get quality ..." },
+    { name: "Shahid Ali", rating: 5, dateText: "2 months ago", text: "Best shop in Long Island city . Please visit for quality and affordable work" }
+  ],
+
+  // Before/after pairs for the slider. Add: { before: "images/x-before.webp", after: "images/x-after.webp", caption: "2019 Honda Accord, front-end repair" }
+  beforeAfter: []
 };
