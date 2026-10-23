@@ -10,6 +10,7 @@
     if (text != null) node.textContent = text;
     return node;
   };
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const MAX_PHOTOS = 10;
   const MAX_BYTES = 10 * 1024 * 1024;
 
@@ -65,6 +66,7 @@
     const car = $('.race-car');
     const header = $('#header');
     if (!car) return;
+    const grow = document.querySelectorAll('[data-grow]');
     let frame = 0;
 
     const paint = () => {
@@ -75,6 +77,12 @@
       // Start fully off the left edge, finish fully off the right edge.
       car.style.transform = `translate3d(${-w + progress * (innerWidth + w)}px,0,0)`;
       header.classList.toggle('scrolled', scrollY > 12);
+      if (reduced) return;
+      // Grow from 82% to 100% as each item rises into view (eased, no layout writes).
+      grow.forEach((node) => {
+        const t = Math.min(Math.max((innerHeight - node.getBoundingClientRect().top) / (innerHeight * 0.9), 0), 1);
+        node.style.scale = (0.82 + 0.18 * (1 - (1 - t) ** 3)).toFixed(3);
+      });
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(paint); };
 
@@ -178,6 +186,67 @@
     $('#revNext').addEventListener('click', () => step(1));
   }
 
+  /* ---------- Rainbow cursor trail (fine pointers only) ---------- */
+  function initTrail() {
+    const canvas = $('#trail');
+    if (reduced || !matchMedia('(pointer: fine)').matches) return;
+    const ctx = canvas.getContext('2d');
+    const LIFE = 650;
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    let points = [];
+    let hue = 0;
+    let frame = 0;
+
+    const size = () => {
+      canvas.width = innerWidth * dpr;
+      canvas.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    size();
+    addEventListener('resize', size);
+
+    const draw = (now) => {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      points = points.filter((p) => now - p.t < LIFE);
+      ctx.globalCompositeOperation = 'lighter';
+      points.forEach((p) => {
+        const life = 1 - (now - p.t) / LIFE;
+        ctx.fillStyle = `hsla(${p.h}, 100%, 60%, ${life * 0.55})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 4 + 10 * life, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      frame = points.length ? requestAnimationFrame(draw) : 0;
+    };
+
+    addEventListener('pointermove', (e) => {
+      hue = (hue + 5) % 360;
+      points.push({ x: e.clientX, y: e.clientY, h: hue, t: performance.now() });
+      if (points.length > 40) points.shift();
+      if (!frame) frame = requestAnimationFrame(draw);
+    }, { passive: true });
+  }
+
+  /* ---------- Click ripple on buttons and tiles ---------- */
+  function initRipple() {
+    if (reduced) return;
+    document.addEventListener('pointerdown', (e) => {
+      const target = e.target.closest('.btn, .icon-btn, .service-tile, .social-card, .nav-toggle');
+      if (!target) return;
+      const r = target.getBoundingClientRect();
+      const size = Math.max(r.width, r.height) * 2.2;
+      const ripple = el('span', 'ripple');
+      Object.assign(ripple.style, {
+        width: size + 'px',
+        height: size + 'px',
+        left: e.clientX - r.left - size / 2 + 'px',
+        top: e.clientY - r.top - size / 2 + 'px',
+      });
+      target.append(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  }
+
   function emptyBox(text) {
     return el('div', 'empty', text);
   }
@@ -237,11 +306,13 @@
   document.addEventListener('DOMContentLoaded', () => {
     applyConfig();
     $('#year').textContent = new Date().getFullYear();
+    initCompare();
+    initReviews();
     initRace();
     initReveal();
     initNav();
-    initCompare();
-    initReviews();
     initForm();
+    initTrail();
+    initRipple();
   });
 })();
