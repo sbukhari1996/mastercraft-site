@@ -50,69 +50,41 @@
 </script>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <linearGradient id="gIcon" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ffc2c4"/>
-      <stop offset="1" stop-color="#ff3b44"/>
-    </linearGradient>
-  </defs>
-  <symbol id="i-engine" viewBox="0 0 48 48" fill="none" stroke="url(#gIcon)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="6" width="22" height="10" rx="2"/><path d="M18 16v6M30 16v6"/><rect x="11" y="22" width="26" height="14" rx="3"/><path d="M17 36v5M31 36v5M24 22v-4"/></symbol>
-  <symbol id="i-brake" viewBox="0 0 48 48" fill="none" stroke="url(#gIcon)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="6"/><path d="M24 8v3M24 37v3M8 24h3M37 24h3"/></symbol>
-  <symbol id="i-wrench" viewBox="0 0 48 48" fill="none" stroke="url(#gIcon)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M31.5 7.5a10 10 0 0 0-9.1 13.6L9.8 35.7a3.6 3.6 0 0 0 5 5l14.6-12.6A10 10 0 0 0 40.5 16.5l-5.2 5.2-5.3-1.7-1.7-5.3 5.2-5.2a10 10 0 0 0-1.9-1.9z"/></symbol>
-  <symbol id="i-frame" viewBox="0 0 48 48" fill="none" stroke="url(#gIcon)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="11" width="34" height="26" rx="4"/><path d="M7 24h34M24 11v26"/><path d="M14 17h6M28 31h6"/></symbol>
-  <symbol id="i-brush" viewBox="0 0 48 48" fill="none" stroke="url(#gIcon)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M36 8l4 4-17 17-4-4z"/><path d="M19 23c-5 0-8 3-8 8 0 2-1 4-3 5 6 2 14 1 15-6z"/></symbol>
-  <symbol id="i-shield" viewBox="0 0 48 48" fill="none" stroke="url(#gIcon)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6l15 5.5v11c0 9.5-6.4 17.2-15 20-8.6-2.8-15-10.5-15-20v-11z"/><path d="M17.5 24l4.5 4.5L31 20"/></symbol>
-</svg>
-<canvas id="trail" aria-hidden="true"></canvas>
 <a href="#main" class="skip-link">Skip to content</a>
 
 <!-- The race: a fixed car that drives across the page as you scroll. Sits behind all content. -->
 <div class="race" aria-hidden="true">
   <div class="race-car">
-    <svg viewBox="0 0 640 220" role="img" aria-label="Red sports car">
+    <svg viewBox="0 0 600 220" role="img">
       <defs>
-        <linearGradient id="carBody" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#ff3b30"/>
-          <stop offset=".4" stop-color="#e10600"/>
-          <stop offset="1" stop-color="#5c0005"/>
+        <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ff5b60"/>
+          <stop offset=".45" stop-color="#d4202a"/>
+          <stop offset="1" stop-color="#6d0a10"/>
         </linearGradient>
-        <linearGradient id="carGlass" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#2c3340"/>
-          <stop offset="1" stop-color="#05060a"/>
+        <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#3a3f4a"/>
+          <stop offset="1" stop-color="#0b0d12"/>
         </linearGradient>
-        <radialGradient id="carRim" cx=".5" cy=".5" r=".5">
-          <stop offset=".6" stop-color="#2a2d33"/>
-          <stop offset=".78" stop-color="#d7dae0"/>
+        <radialGradient id="rim" cx=".5" cy=".5" r=".5">
+          <stop offset=".55" stop-color="#2a2d33"/>
+          <stop offset=".6" stop-color="#c9ccd2"/>
           <stop offset="1" stop-color="#7d818a"/>
         </radialGradient>
-        <linearGradient id="carLight" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#fff6dc" stop-opacity=".2"/>
-          <stop offset="1" stop-color="#fff6dc"/>
-        </linearGradient>
       </defs>
-      <ellipse cx="320" cy="214" rx="290" ry="8" fill="#000" opacity=".55"/>
-      <path d="M12 146 L14 124 Q18 114 44 112 L124 106 Q150 104 172 92 Q224 66 298 62 L382 62 Q424 64 452 86 L524 104 Q566 110 596 124 Q626 134 626 148 L624 154 Q618 158 602 158 L560 158 A54 54 0 0 0 452 158 L212 158 A54 54 0 0 0 104 158 L46 158 Q12 158 12 146 Z" fill="url(#carBody)"/>
-      <path d="M176 96 Q216 70 296 68 L372 68 Q410 70 440 92 L300 100 Z" fill="url(#carGlass)"/>
-      <path d="M300 130 Q350 122 406 132 L394 146 Q346 140 300 146 Z" fill="#3a0004" opacity=".85"/>
-      <path d="M582 152 L624 152 L618 160 L588 160 Z" fill="#0b0b0d"/>
-      <path d="M14 146 L40 146 L36 158 L16 158 Z" fill="#0b0b0d"/>
-      <path d="M56 118 Q180 98 298 66 Q380 68 440 94" fill="none" stroke="#fff" stroke-width="2.5" opacity=".45"/>
-      <path d="M90 132 L560 128" stroke="#000" stroke-width="2" opacity=".18"/>
-      <path d="M584 118 Q604 118 622 134 L600 136 Q588 130 582 124 Z" fill="url(#carLight)"/>
-      <path d="M14 122 L40 116 L42 124 L16 130 Z" fill="#ff1a1a"/>
-      
-      <circle cx="158" cy="160" r="50" fill="#06070a"/>
-      <circle cx="158" cy="160" r="36" fill="url(#carRim)"/>
-      <g stroke="#3b3f48" stroke-width="5" stroke-linecap="round" fill="none"><path d="M158.0 152.0 L168.3 131.8" /><path d="M165.6 157.5 L188.0 161.1" /><path d="M162.7 166.5 L166.2 188.8" /><path d="M153.3 166.5 L133.1 176.8" /><path d="M150.4 157.5 L134.4 141.5" /></g>
-      <circle cx="158" cy="160" r="10" fill="#2a2d33"/>
-      <rect x="164" y="120" width="28" height="16" rx="5" fill="#e10600" transform="rotate(-8 158 160)"/>
-      
-      <circle cx="506" cy="160" r="50" fill="#06070a"/>
-      <circle cx="506" cy="160" r="36" fill="url(#carRim)"/>
-      <g stroke="#3b3f48" stroke-width="5" stroke-linecap="round" fill="none"><path d="M506.0 152.0 L516.3 131.8" /><path d="M513.6 157.5 L536.0 161.1" /><path d="M510.7 166.5 L514.2 188.8" /><path d="M501.3 166.5 L481.1 176.8" /><path d="M498.4 157.5 L482.4 141.5" /></g>
-      <circle cx="506" cy="160" r="10" fill="#2a2d33"/>
-      <rect x="512" y="120" width="28" height="16" rx="5" fill="#e10600" transform="rotate(-8 506 160)"/>
+      <ellipse cx="300" cy="206" rx="270" ry="10" fill="#000" opacity=".5"/>
+      <path d="M22 150 L22 118 Q24 100 62 94 L150 82 Q192 52 262 48 L402 46 Q452 48 492 80 L540 96 Q578 104 580 130 L582 150 Q582 162 568 162 L538 162 A44 44 0 0 0 450 162 L202 162 A44 44 0 0 0 114 162 L60 162 Q22 162 22 150 Z" fill="url(#body)"/>
+      <path d="M176 84 Q206 62 262 60 L392 58 Q432 60 458 84 Z" fill="url(#glass)"/>
+      <path d="M204 80 Q230 68 268 66 L300 66 L262 80 Z" fill="#fff" opacity=".18"/>
+      <path d="M130 100 L300 96" stroke="#fff" stroke-width="2" opacity=".35"/>
+      <path d="M548 108 L580 116 L576 128 L546 122 Z" fill="#fff6e0"/>
+      <path d="M22 112 L40 110 L42 126 L24 130 Z" fill="#ff2a2a"/>
+      <circle cx="152" cy="160" r="44" fill="#05060a"/>
+      <circle cx="152" cy="160" r="30" fill="url(#rim)"/>
+      <circle cx="152" cy="160" r="8" fill="#2a2d33"/>
+      <circle cx="492" cy="160" r="44" fill="#05060a"/>
+      <circle cx="492" cy="160" r="30" fill="url(#rim)"/>
+      <circle cx="492" cy="160" r="8" fill="#2a2d33"/>
     </svg>
   </div>
   <div class="race-road"></div>
@@ -174,21 +146,25 @@
       <p class="eyebrow reveal">What we do</p>
       <h2 id="services-title" class="reveal">Repair, restore, <span class="accent">get back on the road</span></h2>
 
-      <div class="svc-group">
-        <h3 class="svc-label reveal">Auto repair</h3>
-        <div class="svc-grid">
-          <article class="glass service-tile reveal" data-grow style="--d:0"><span class="ico-wrap"><svg class="ico" aria-hidden="true"><use href="#i-engine"/></svg></span><h4>Engine &amp; transmission</h4><p>Diagnosis and repair that gets to the real cause.</p></article>
-          <article class="glass service-tile reveal" data-grow style="--d:1"><span class="ico-wrap"><svg class="ico" aria-hidden="true"><use href="#i-brake"/></svg></span><h4>Brakes &amp; suspension</h4><p>Stopping power and a ride you can trust.</p></article>
-          <article class="glass service-tile reveal" data-grow style="--d:2"><span class="ico-wrap"><svg class="ico" aria-hidden="true"><use href="#i-wrench"/></svg></span><h4>Diagnostics &amp; maintenance</h4><p>Factory-spec service to keep your car running right.</p></article>
-        </div>
-      </div>
-      <div class="svc-group">
-        <h3 class="svc-label reveal">Collision</h3>
-        <div class="svc-grid">
-          <article class="glass service-tile reveal" data-grow style="--d:0"><span class="ico-wrap"><svg class="ico" aria-hidden="true"><use href="#i-frame"/></svg></span><h4>Full-frame repair</h4><p>Computerized measuring and factory-spec structural work.</p></article>
-          <article class="glass service-tile reveal" data-grow style="--d:1"><span class="ico-wrap"><svg class="ico" aria-hidden="true"><use href="#i-brush"/></svg></span><h4>Color-match paint</h4><p>Precision blending with a flawless clear-coat finish.</p></article>
-          <article class="glass service-tile reveal" data-grow style="--d:2"><span class="ico-wrap"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></span><h4>Insurance concierge</h4><p>We handle the adjuster, supplements and paperwork.</p></article>
-        </div>
+      <div class="service-grid">
+        <article class="glass card reveal">
+          <h3>Auto Repair</h3>
+          <ul class="checks">
+            <li>Comprehensive diagnostics</li>
+            <li>Engine &amp; transmission work</li>
+            <li>Brakes &amp; suspension</li>
+            <li>Factory maintenance</li>
+          </ul>
+        </article>
+        <article class="glass card card-featured reveal">
+          <h3>Collision</h3>
+          <ul class="checks">
+            <li>Full-frame repair</li>
+            <li>Precision body work</li>
+            <li>Expert color-match painting</li>
+            <li>Insurance claim concierge</li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>
@@ -223,7 +199,7 @@
   <!-- ABOUT -->
   <section class="section" id="about" aria-labelledby="about-title">
     <div class="container about-grid">
-      <figure class="glass about-media reveal" data-grow>
+      <figure class="glass about-media reveal">
         <img src="images/shop-sign.webp" width="1400" height="1093" loading="lazy" alt="MasterCraft hanging shop sign" data-cfg="src:images.aboutShop">
       </figure>
       <div class="about-copy reveal">
@@ -246,7 +222,7 @@
   <!-- ESTIMATE -->
   <section class="section" id="estimate" aria-labelledby="estimate-title">
     <div class="container narrow">
-      <div class="glass form-card reveal" data-grow>
+      <div class="glass form-card reveal">
         <p class="eyebrow eyebrow-center">Free estimate</p>
         <h2 id="estimate-title" class="center">Tell us what <span class="accent">happened</span></h2>
         <p class="center muted">Send your info and photos of any damage. We follow up fast.</p>
@@ -332,9 +308,9 @@
 <section class="section social" aria-label="Social media">
   <div class="container">
     <div class="social-grid">
-      <a data-grow class="glass social-card" href="https://www.facebook.com/mastercraftautony" target="_blank" rel="noopener noreferrer" data-cfg="href:social.facebook"><h3>Facebook</h3><p>Before/after collision work &amp; community updates</p></a>
-      <a data-grow class="glass social-card" href="https://www.youtube.com/@mastercraftautony" target="_blank" rel="noopener noreferrer" data-cfg="href:social.youtube"><h3>YouTube</h3><p>Diagnostics breakdowns &amp; frame work time-lapses</p></a>
-      <a data-grow class="glass social-card" href="https://www.tiktok.com/@mastercraftautony" target="_blank" rel="noopener noreferrer" data-cfg="href:social.tiktok"><h3>TikTok</h3><p>Quick dent pulls &amp; daily shop life in Queens</p></a>
+      <a class="glass social-card" href="https://www.facebook.com/mastercraftautony" target="_blank" rel="noopener noreferrer" data-cfg="href:social.facebook"><h3>Facebook</h3><p>Before/after collision work &amp; community updates</p></a>
+      <a class="glass social-card" href="https://www.youtube.com/@mastercraftautony" target="_blank" rel="noopener noreferrer" data-cfg="href:social.youtube"><h3>YouTube</h3><p>Diagnostics breakdowns &amp; frame work time-lapses</p></a>
+      <a class="glass social-card" href="https://www.tiktok.com/@mastercraftautony" target="_blank" rel="noopener noreferrer" data-cfg="href:social.tiktok"><h3>TikTok</h3><p>Quick dent pulls &amp; daily shop life in Queens</p></a>
     </div>
   </div>
 </section>
