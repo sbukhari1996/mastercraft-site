@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
+import Marquee from './components/Marquee.jsx';
 import Services from './components/Services.jsx';
-import About from './components/About.jsx';
-import Work from './components/Work.jsx';
+import Process from './components/Process.jsx';
+import BeforeAfter from './components/BeforeAfter.jsx';
 import Reviews from './components/Reviews.jsx';
-import Footer from './components/Footer.jsx';
+import Gallery from './components/Gallery.jsx';
+import Location from './components/Location.jsx';
 import Estimate from './components/Estimate.jsx';
 import StickyCta from './components/StickyCta.jsx';
+import Footer from './components/Footer.jsx';
 import Admin from './admin/Admin.jsx';
 import gallery from './data/gallery.json';
 import reviews from './data/reviews.json';
@@ -17,6 +20,8 @@ export default function App() {
 
   if (window.location.pathname === '/admin') return <Admin />;
 
+  const beforeAfter = gallery.filter((g) => g.kind === 'before-after');
+  const photos = gallery.filter((g) => g.kind !== 'before-after');
   const rating = reviews.length ? (reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1) : '–';
   const openEstimate = () => setEstimateOpen(true);
 
@@ -27,11 +32,14 @@ export default function App() {
       </a>
       <Header onEstimate={openEstimate} />
       <main id="main">
-        <Hero onEstimate={openEstimate} />
-        <About rating={rating} />
+        <Hero onEstimate={openEstimate} rating={rating} reviewCount={reviews.length} />
+        <Marquee />
         <Services onEstimate={openEstimate} />
-        <Work items={gallery} />
+        <Process />
+        <BeforeAfter items={beforeAfter} />
         <Reviews reviews={reviews} />
+        <Gallery items={photos} />
+        <Location />
       </main>
       <Footer />
       <StickyCta onEstimate={openEstimate} />
